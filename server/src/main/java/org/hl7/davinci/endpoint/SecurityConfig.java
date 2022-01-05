@@ -5,7 +5,6 @@ import org.hl7.davinci.endpoint.config.YamlConfig;
 import org.hl7.davinci.endpoint.database.PublicKeyRepository;
 import org.hl7.davinci.endpoint.database.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
