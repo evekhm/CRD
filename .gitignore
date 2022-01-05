@@ -21,6 +21,8 @@ gradle/gradle-4.10.1/*
 request-generator/*
 server/src/main/resources/react/node_modules/*
 
+keys
+
 # CMake
 cmake-build-*/
 

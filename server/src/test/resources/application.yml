@@ -22,6 +22,12 @@ spring:
   - "http://localhost:3000"
   - "http://localhost:3002"
 
+endpoints:
+  crdRequestGenerator: ""
+  testEhr: ""
+  fhirserver: ""
+  dtr: ""
+
 keycloak:
   auth-server-url: http://localhost:8180/auth
   realm: SpringBootKeycloak
@@ -39,4 +45,14 @@ localDb:
 
 launchUrl: /smart/launch.html
 appendParamsToSmartLaunchUrl: true
+
+google:
+  storage:
+    rulesPath: CRD-DTR/
+    examplesPath: Examples/
+    bucket: prior-auth-334002-spring-test
+    db: CDS-Library.zip
+    projectId: prior-auth-334002
+  pod:
+    db: /usr/share/CDS-Library.zip
 

@@ -5,6 +5,7 @@ import org.hl7.davinci.endpoint.config.YamlConfig;
 import org.hl7.davinci.endpoint.database.PublicKeyRepository;
 import org.hl7.davinci.endpoint.database.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,7 +41,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     final CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(myConfig.getCorsOrigins());
+
+    configuration.setAllowedOrigins(myConfig.getCorsOriginsAndEndPoints());
     List<String> allowedOrigins = configuration.getAllowedOrigins();
     allowedOrigins.forEach((n) -> logger.info("CORS Allowed Origin: " + n));
     configuration.setAllowedMethods(ImmutableList.of("HEAD",
