@@ -189,7 +189,7 @@ public abstract class CommonFileStore implements FileStore {
     return fhirResources.findAll();
   }
 
-  protected boolean reloadFromZip(String zipPath, String rulePath, String examplesPath) {
+  protected boolean reloadFromZip(String zipPath, String rulePath, String examplesPath, Boolean deleteZip) {
     logger.info("CommonFileStore::reloadFromZip()");
     // download the repo
     File zipFile = new File(zipPath);
@@ -227,12 +227,15 @@ public abstract class CommonFileStore implements FileStore {
       }
 
       // clean up the zip file
-      try {
-        FileUtils.deleteDirectory(zipFile);
-      } catch (IOException e) {
-        logger.warn("CommonFileStore::reloadFromZip() failed to delete directory: " + e.getMessage());
-        return false;
+      if (deleteZip){
+        try {
+          FileUtils.deleteDirectory(zipFile);
+        } catch (IOException e) {
+          logger.warn("CommonFileStore::reloadFromZip() failed to delete directory: " + e.getMessage());
+          return false;
+        }
       }
+
     } else {
       return false;
     }

@@ -82,7 +82,8 @@ google:
     db: CDS-Library.zip
     projectId: prior-auth-334002
   pod:
-    db: /Users/evekhm/projects/priauth/CRD/CDS-Library.zip
+    zip: /Users/evekhm/projects/priauth/CRD/CDS-Library.zip
+    path: /Users/evekhm/projects/priauth/CRD/CDS-Library.zip/CDS-Library
 
 localDb:
   path: /CDS-Library/CRD-DTR/

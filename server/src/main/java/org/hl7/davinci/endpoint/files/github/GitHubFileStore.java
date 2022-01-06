@@ -59,7 +59,7 @@ public class GitHubFileStore extends CommonFileStore {
       String zipPath = connection.downloadRepo();
       String rulePath = config.getGitHubConfig().getRulePath();
       String examplesPath = config.getGitHubConfig().getExamplesPath();
-      success = reloadFromZip(zipPath, rulePath, examplesPath);
+      success = reloadFromZip(zipPath, rulePath, examplesPath, true);
     } else {
       String rulePath = config.getGitHubConfig().getRulePath();
       success = reloadFromGitHub(rulePath);

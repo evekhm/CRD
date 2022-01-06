@@ -48,8 +48,11 @@ public class GCPFileStore extends CommonFileStore {
   @Value("${google.storage.projectId}")
   private String projectId;
 
-  @Value("${google.pod.db}")
+  @Value("${google.pod.zip}")
   private String destFilePath;
+
+  @Value("${google.pod.path}")
+  private String db;
 
 
   @Autowired
@@ -96,7 +99,7 @@ public class GCPFileStore extends CommonFileStore {
 
         if(parentDirectoryOk) {
           blob.downloadTo(Paths.get(destFilePath));
-          success = reloadFromZip(destFilePath, rules, examples);
+          success = reloadFromZip(destFilePath, rules, examples, false);
         }
         else
           logger.error("Could not create local directory " + destFilePath);
@@ -111,22 +114,22 @@ public class GCPFileStore extends CommonFileStore {
     float seconds = (float) timeElapsed / (float) 1000000000;
 
     if (success) {
-      logger.info("GCPFileStore::reload(): completed in " + seconds + " seconds");
+      logger.info("GCPFileStore::reload(): completed in " + seconds + " seconds, downloaded to " + destFilePath);
     } else {
       logger.warn("GCPFileStore::reload(): failed in " + seconds + " seconds");
     }
   }
 
   private String getExamplesPath(){
-    File destFolder = new File(destFilePath);
+    File destFolder = new File(db);
     File examplesFolder = new File(destFolder, examples);
-    return examplesFolder.getPath();
+    return examplesFolder.getPath() + "/";
   }
 
   private String getRulesPath(){
-    File destFolder = new File(destFilePath);
+    File destFolder = new File(db);
     File examplesFolder = new File(destFolder, rules);
-    return examplesFolder.getPath();
+    return examplesFolder.getPath() + "/";
   }
 
   public CqlRule getCqlRule(String topic, String fhirVersion) {
