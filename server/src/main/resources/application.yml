@@ -36,7 +36,7 @@ corsOrigins:
 endpoints:
   crdRequestGenerator: "http://localhost:3000"
   testEhr: "http://localhost:8080"
-  fhirserver: "http://localhost:8080/test-ehr/r4"
+  auth: "http://localhost:8180"
   dtr: "http://localhost:3005"
 
 checkPractitionerLocation: false

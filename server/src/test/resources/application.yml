@@ -25,7 +25,7 @@ spring:
 endpoints:
   crdRequestGenerator: ""
   testEhr: ""
-  fhirserver: ""
+  auth: ""
   dtr: ""
 
 keycloak:

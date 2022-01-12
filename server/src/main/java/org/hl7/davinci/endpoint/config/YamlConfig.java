@@ -41,6 +41,9 @@ public class YamlConfig {
   @Value("${endpoints.dtr}")
   private String dtr;
 
+  @Value("${endpoints.auth}")
+  private String auth;
+
   private boolean checkPractitionerLocation;
   private boolean appendParamsToSmartLaunchUrl;
   private String hostOrg;
@@ -70,6 +73,7 @@ public class YamlConfig {
       AddNotEmpty(endPoints, crdRequestGenerator);
       AddNotEmpty(endPoints, testEhr);
       AddNotEmpty(endPoints, dtr);
+      AddNotEmpty(endPoints, auth);
     }
     return endPoints;
   }
