@@ -36,7 +36,8 @@ public class Utils {
 
       } else {
         logger.info(request.getScheme() + ", " + request.getServerName() + ", " + request.getServerPort());
-        url = new URL(request.getScheme(), request.getServerName(), request.getServerPort(), request.getContextPath());
+        //url = new URL(request.getScheme(), request.getServerName(), request.getServerPort(), request.getContextPath());
+        url = new URL("https", request.getServerName(), request.getContextPath());
       }
       logger.info("url: " + url);
       return url;
